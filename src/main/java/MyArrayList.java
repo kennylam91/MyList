@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -80,7 +81,7 @@ public class MyArrayList<E> {
 
     public void add(int index, E e) {
         if (isIndexValid(index)) {
-            Object[] temp = Arrays.copyOf(elements,size);
+            Object[] temp = Arrays.copyOf(elements, size);
             for (int i = index; i < size; i++) {
                 elements[i + 1] = temp[i];
             }
@@ -91,33 +92,45 @@ public class MyArrayList<E> {
         }
     }
 
-    public E remove(int index){
-        if(isIndexValid(index)){
-            Object[] temp = Arrays.copyOf(elements,size);
-            for(int i=index;i<size-1;i++){
-                elements[i]=temp[i+1];
+    public E remove(int index) {
+        if (isIndexValid(index)) {
+            Object[] temp = Arrays.copyOf(elements, size);
+            for (int i = index; i < size - 1; i++) {
+                elements[i] = temp[i + 1];
             }
-            elements[size-1]=null;
+            elements[size - 1] = null;
             size--;
-            return (E)temp[index];
-        }
-        else {
+            return (E) temp[index];
+        } else {
             throw new IndexOutOfBoundsException("index is Invalid " + index);
         }
     }
 
-    public Object clone(){
-        MyArrayList<String> object=new MyArrayList();
+    public Object clone() {
+        MyArrayList<String> object = new MyArrayList();
         object.setElements(this.getElements());
         object.setSize(this.getSize());
         return object;
     }
 
-    public boolean contains( E o){
-        for(int i=0;i<size;i++){
-            if(elements[i]==o) return true;
+    public boolean contains(E o) {
+        for (int i = 0; i < size; i++) {
+            if (elements[i] == o) return true;
         }
         return false;
+    }
+
+    public int indexOf(E o) {
+        for (int i = 0; i < size; i++) {
+            if (elements[i] == o) return i;
+        }
+        return -1;
+    }
+
+    public void clear(){
+        elements=new Array[0];
+        size=0;
+
     }
 
 }
