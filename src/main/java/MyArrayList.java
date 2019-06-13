@@ -115,14 +115,14 @@ public class MyArrayList<E> {
 
     public boolean contains(E o) {
         for (int i = 0; i < size; i++) {
-            if (elements[i] == o) return true;
+            if (o.equals(elements[i])) return true;
         }
         return false;
     }
 
     public int indexOf(E o) {
         for (int i = 0; i < size; i++) {
-            if (elements[i] == o) return i;
+            if (o.equals(elements[i])) return i;
         }
         return -1;
     }

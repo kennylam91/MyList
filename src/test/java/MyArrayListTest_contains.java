@@ -7,5 +7,7 @@ public class MyArrayListTest_contains {
         listString.add("bon");
         System.out.println(listString);
         System.out.println(listString.contains("nam"));
+        System.out.println(listString.contains("Mot"));
+        System.out.println(listString.contains("ba"));
     }
 }

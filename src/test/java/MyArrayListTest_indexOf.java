@@ -6,5 +6,8 @@ public class MyArrayListTest_indexOf {
         listString.add("ba");
         listString.add("bon");
         System.out.println(listString.indexOf("bon"));
+        System.out.println(listString.indexOf("mot"));
+        System.out.println(listString.indexOf("ba"));
+
     }
 }
